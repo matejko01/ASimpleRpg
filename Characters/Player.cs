@@ -25,10 +25,14 @@ namespace ASimpleRpg.Characters
         }
 
 
-        //A player creates his character
+        //Player creates his character
         public void Create()
         {
+            //Variables that check if player's input is correct
             bool nameInput = true;
+            bool genderInput = true;
+            bool professionInput = true;
+
             do
             {
                 Console.Clear();
@@ -46,7 +50,6 @@ namespace ASimpleRpg.Characters
             }
             while (nameInput);
 
-            bool genderInput = true;
             do
             {
                 Console.Clear();
@@ -69,7 +72,6 @@ namespace ASimpleRpg.Characters
                 }
             } while (genderInput);
 
-            bool professionInput = true;
             do
             {
                 Console.Clear();

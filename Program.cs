@@ -1,5 +1,4 @@
-﻿using ASimpleRpg.Characters;
-using ASimpleRpg.game;
+﻿using ASimpleRpg.game;
 using System;
 
 namespace ASimpleRpg
@@ -15,25 +14,15 @@ namespace ASimpleRpg
 
         static void DisplayMenu()
         {
-            Console.WriteLine("------------------------------------------------------------------------------------");
-            Console.WriteLine("##       ##    ###     #### ##     ##     ##       ## ######## ##     ## ##       ##");
-            Console.WriteLine("###     ###   ##  ##    ##  ###    ##     ###     ### ##       ###    ## ##       ##");
-            Console.WriteLine("####   ####  ##    ##   ##  #####  ##     ####   #### ##       ####   ## ##       ##");
-            Console.WriteLine("##  ###  ## ##      ##  ##  ## ### ##     ##  ###  ## ######## ## ### ## ##       ##");
-            Console.WriteLine("##       ## ##########  ##  ##   ####     ##       ## ##       ##   #### ##       ##");
-            Console.WriteLine("##       ## ##      ##  ##  ##    ###     ##       ## ##       ##    ###  ##     ## ");
-            Console.WriteLine("##       ## ##      ## #### ##     ##     ##       ## ######## ##     ##    #####"   );
-            Console.WriteLine("------------------------------------------------------------------------------------");
-            Console.WriteLine("\n\n1) New game\n2) Load game\n3) Exit");
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.Display();
 
             string menuChoice = Console.ReadLine();
 
             if (menuChoice == "1")
             {
                 Console.Clear();
-                NewGame newGame = new NewGame();
-                newGame.createNewCharacter();
-                Console.ReadKey();
+                CreatePlayer();
             }
             else if (menuChoice == "2")
             {
@@ -53,6 +42,14 @@ namespace ASimpleRpg
                 Console.Clear();
                 DisplayMenu();
             }
+        }
+
+
+        static void CreatePlayer()
+        {
+            NewGame newGame = new NewGame();
+            newGame.createNewCharacter();
+            Console.ReadKey();
         }
     }
 }
