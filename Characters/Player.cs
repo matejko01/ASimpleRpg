@@ -6,22 +6,22 @@ namespace ASimpleRpg.Characters
 {
     public class Player
     {
-        //variables
+        //properties
         public bool isMale { get; set; }
         public string name { get; set; }
         public string profession { get; set; }
 
-        public int health { get; set; }
-        public int skill { get; set; }
+        public int vigor { get; set; }
+        public int cunning { get; set; }
 
 
-        //Object's constructor
-        public Player(bool _isMale, string _name, int _health, int _skill)
+        //constructor
+        public Player(bool _isMale, string _name, int _vigor, int _cunning)
         {
             isMale = _isMale;
             name = _name;
-            health = _health;
-            skill = _skill;
+            vigor = _vigor;
+            cunning = _cunning;
         }
 
 
@@ -59,11 +59,15 @@ namespace ASimpleRpg.Characters
                 if (isMaleAnswer == "1")
                 {
                     isMale = true;
+                    vigor = 10;
+                    cunning = 5;
                     genderInput = false;
                 }
                 else if (isMaleAnswer == "2")
                 {
                     isMale = false;
+                    vigor = 5;
+                    cunning = 10;
                     genderInput = false;
                 }
                 else
@@ -75,22 +79,28 @@ namespace ASimpleRpg.Characters
             do
             {
                 Console.Clear();
-                Console.WriteLine("What is your profession? \n1)Squire \n2)Pickpocket \n3)Page");
+                Console.WriteLine("What is your profession? \n1)Recruit \n2)Pickpocket \n3)Acolyte");
                 string professionGiven = Console.ReadLine();
 
                 if (professionGiven == "1")
                 {
-                    profession = "squire";
+                    profession = "recruit";
+                    vigor += 45;
+                    cunning += 15;
                     professionInput = false;
                 }
                 else if (professionGiven == "2")
                 {
                     profession = "pickpocket";
+                    vigor += 30;
+                    cunning += 30;
                     professionInput = false;
                 }
                 else if (professionGiven == "3")
                 {
-                    profession = "page";
+                    profession = "acolyte";
+                    vigor += 45;
+                    cunning += 15;
                     professionInput = false;
                 }
                 else
@@ -105,7 +115,7 @@ namespace ASimpleRpg.Characters
         public int MeleeAttack()
         {
             int weaponValue = 3;
-            int dmg = this.skill * weaponValue;
+            int dmg = this.cunning * weaponValue;
             return dmg;
         }
 
@@ -124,7 +134,7 @@ namespace ASimpleRpg.Characters
                 gender = "female";
             }
 
-            Console.WriteLine("My name is {0}, I have health of {1}, skill of {2}, and I am a {3} {4}", name, health, skill, gender, profession);
+            Console.WriteLine("My name is {0}, I have vigor of {1}, cunning of {2}, and I am a {3} {4}", name, vigor, cunning, gender, profession);
         }
     }
 }
