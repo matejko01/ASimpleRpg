@@ -15,38 +15,47 @@ namespace ASimpleRpg.Characters
         Random random = new Random();
 
         //constructor
-        public Weapon(string _name, int _value, int _damage)
+        public Weapon(string _name)
         {
             name = _name;
-            value = _value;
-            damage = _damage;
+            AssignStats();
         }
 
-
+        //Random item for loot
         public void CreateRandomItem()
         {
             string selectedItem = itemType[random.Next(0, itemType.Length)];
             name = selectedItem;
+            AssignStats();
+        }
 
-            if (selectedItem == "brass knuckles")
+
+        public void AssignStats()
+        {
+            if (name == "brass knuckles")
             {
                 value = 10;
                 damage = 5;
             }
-            else if (selectedItem == "dagger")
+            else if (name == "dagger")
             {
                 value = 25;
                 damage = 10;
             }
-            else if (selectedItem == "sword" || selectedItem == "axe" || selectedItem == "mace")
+            else if (name == "sword" || name == "axe" || name == "mace")
             {
                 value = 50;
                 damage = 25;
             }
-            else if (selectedItem == "greatsword" || selectedItem == "war axe" || selectedItem == "warhamer")
+            else if (name == "greatsword" || name == "war axe" || name == "warhamer")
             {
                 value = 200;
                 damage = 50;
+            }
+            else
+            {
+                value = 0;
+                damage = 0;
             }
         }
     }

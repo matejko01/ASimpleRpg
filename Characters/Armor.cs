@@ -4,17 +4,18 @@ using System.Text;
 
 namespace ASimpleRpg.Characters
 {
-    class Treasure
+    class Armor
     {
         //properties
         public string name { get; set; }
         public int value { get; set; }
+        public int defense { get; set; }
 
-        String[] itemType = {"coin", "ring", "bracelet", "necklace", "gem"};
+        String[] itemType = { "cloak", "gambison", "haubert", "plate armor" };
         Random random = new Random();
 
         //constructor
-        public Treasure(string _name)
+        public Armor(string _name)
         {
             name = _name;
             AssignStats();
@@ -28,28 +29,33 @@ namespace ASimpleRpg.Characters
             AssignStats();
         }
 
-
-        public void AssignStats()
+        //To give an item its stats
+        private void AssignStats()
         {
-            if (name == "coin")
-            {
-                value = 1;
-            }
-            else if (name == "ring")
-            {
-                value = 5;
-            }
-            else if (name == "bracelet" || name == "necklace")
+            if (name == "cloak")
             {
                 value = 10;
+                defense = 5;
             }
-            else if (name == "gem")
+            else if (name == "gambison")
             {
                 value = 25;
+                defense = 10;
+            }
+            else if (name == "haubert")
+            {
+                value = 50;
+                defense = 25;
+            }
+            else if (name == "plate armor")
+            {
+                value = 200;
+                defense = 50;
             }
             else
             {
                 value = 0;
+                defense = 0;
             }
         }
     }

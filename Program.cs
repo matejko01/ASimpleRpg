@@ -1,4 +1,5 @@
-﻿using ASimpleRpg.game;
+﻿using ASimpleRpg.Characters;
+using ASimpleRpg.game;
 using System;
 
 namespace ASimpleRpg
@@ -48,8 +49,14 @@ namespace ASimpleRpg
         static void CreatePlayer()
         {
             NewGame newGame = new NewGame();
-            newGame.createNewCharacter();
+            newGame.CreateNewCharacter();
+            Console.ReadKey();
+
+            newGame.CreateNewArmor();
+            newGame.CreateNewTrasure();
+            newGame.CreateNewWeapon();
             Console.ReadKey();
         }
+
     }
 }
