@@ -7,8 +7,6 @@ namespace ASimpleRpg.game
 {
     class NewGame
     {
-
-
         public void CreateNewCharacter()
         {
             Console.Clear();
@@ -19,6 +17,7 @@ namespace ASimpleRpg.game
             player.PresentYourself();
         }
 
+
         public void CreateNewArmor()
         {
             Armor armor = new Armor("");
@@ -26,12 +25,14 @@ namespace ASimpleRpg.game
             Console.WriteLine("name {0}, defense {1}, value {2}", armor.name, armor.defense, armor.value);
         }
 
+
         public void CreateNewTrasure()
         {
             Treasure trasure = new Treasure("");
             trasure.CreateRandomItem();
             Console.WriteLine("name {0}, value {1}", trasure.name, trasure.value);
         }
+
 
         public void CreateNewWeapon()
         {

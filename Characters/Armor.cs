@@ -54,8 +54,7 @@ namespace ASimpleRpg.Characters
             }
             else
             {
-                value = 0;
-                defense = 0;
+                CreateRandomItem();
             }
         }
     }

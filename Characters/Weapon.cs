@@ -29,7 +29,7 @@ namespace ASimpleRpg.Characters
             AssignStats();
         }
 
-
+        //To give an item its stats
         public void AssignStats()
         {
             if (name == "brass knuckles")
@@ -54,8 +54,7 @@ namespace ASimpleRpg.Characters
             }
             else
             {
-                value = 0;
-                damage = 0;
+                CreateRandomItem();
             }
         }
     }

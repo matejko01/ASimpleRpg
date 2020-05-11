@@ -33,6 +33,7 @@ namespace ASimpleRpg.Characters
             bool genderInput = true;
             bool professionInput = true;
 
+            //Provide character's info
             do
             {
                 Console.Clear();
@@ -109,16 +110,20 @@ namespace ASimpleRpg.Characters
                 }
             }
             while (professionInput);
+
+            ProvideInventory();
         }
 
-        //Below there will be abilities
-        public int MeleeAttack()
+        //Create inventory and provide starting items
+        private void ProvideInventory()
         {
-            int weaponValue = 3;
-            int dmg = this.cunning * weaponValue;
-            return dmg;
-        }
+            Inventory inventory = new Inventory();
+            if (profession == "recruit")
+            {
 
+            }
+
+        }
 
         //Just to see if it works
         public void PresentYourself()

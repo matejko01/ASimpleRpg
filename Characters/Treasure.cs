@@ -28,7 +28,7 @@ namespace ASimpleRpg.Characters
             AssignStats();
         }
 
-
+        //To give an item its stats
         public void AssignStats()
         {
             if (name == "coin")
@@ -49,7 +49,7 @@ namespace ASimpleRpg.Characters
             }
             else
             {
-                value = 0;
+                CreateRandomItem();
             }
         }
     }
