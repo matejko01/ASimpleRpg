@@ -12,20 +12,11 @@ namespace ASimpleRpg.Characters
         public int damage { get; set; }
 
         String[] itemType = { "brass knuckles", "dagger", "sword", "axe", "mace", "greatsword", "war axe", "warhammer" };
-        Random random = new Random();
 
         //constructor
         public Weapon(string _name)
         {
             name = _name;
-            AssignStats();
-        }
-
-        //Random item for loot
-        public void CreateRandomItem()
-        {
-            string selectedItem = itemType[random.Next(0, itemType.Length)];
-            name = selectedItem;
             AssignStats();
         }
 
@@ -51,10 +42,6 @@ namespace ASimpleRpg.Characters
             {
                 value = 200;
                 damage = 50;
-            }
-            else
-            {
-                CreateRandomItem();
             }
         }
     }

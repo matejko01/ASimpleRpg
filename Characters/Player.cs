@@ -11,17 +11,20 @@ namespace ASimpleRpg.Characters
         public string name { get; set; }
         public string profession { get; set; }
 
-        public int vigor { get; set; }
-        public int cunning { get; set; }
+        public int attack { get; set; }
+        public int charisma { get; set; }
+        public int health { get; set; }
 
 
         //constructor
-        public Player(bool _isMale, string _name, int _vigor, int _cunning)
+        public Player(bool _isMale, string _name, string _profession, int _attack, int _charisma, int _health)
         {
             isMale = _isMale;
             name = _name;
-            vigor = _vigor;
-            cunning = _cunning;
+            profession = _profession;
+            attack = _attack;
+            charisma = _charisma;
+            health = _health;
         }
 
 
@@ -31,7 +34,7 @@ namespace ASimpleRpg.Characters
             //Variables that check if player's input is correct
             bool nameInput = true;
             bool genderInput = true;
-            bool professionInput = true;
+            
 
             //Provide character's info
             do
@@ -60,15 +63,15 @@ namespace ASimpleRpg.Characters
                 if (isMaleAnswer == "1")
                 {
                     isMale = true;
-                    vigor = 10;
-                    cunning = 5;
+                    attack = 10;
+                    charisma = 5;
                     genderInput = false;
                 }
                 else if (isMaleAnswer == "2")
                 {
                     isMale = false;
-                    vigor = 5;
-                    cunning = 10;
+                    attack = 5;
+                    charisma = 10;
                     genderInput = false;
                 }
                 else
@@ -77,52 +80,41 @@ namespace ASimpleRpg.Characters
                 }
             } while (genderInput);
 
-            do
-            {
-                Console.Clear();
-                Console.WriteLine("What is your profession? \n1)Recruit \n2)Pickpocket \n3)Acolyte");
-                string professionGiven = Console.ReadLine();
-
-                if (professionGiven == "1")
-                {
-                    profession = "recruit";
-                    vigor += 45;
-                    cunning += 15;
-                    professionInput = false;
-                }
-                else if (professionGiven == "2")
-                {
-                    profession = "pickpocket";
-                    vigor += 30;
-                    cunning += 30;
-                    professionInput = false;
-                }
-                else if (professionGiven == "3")
-                {
-                    profession = "acolyte";
-                    vigor += 45;
-                    cunning += 15;
-                    professionInput = false;
-                }
-                else
-                {
-                    Console.Clear();
-                }
-            }
-            while (professionInput);
-
-            ProvideInventory();
-        }
-
-        //Create inventory and provide starting items
-        private void ProvideInventory()
-        {
-            Inventory inventory = new Inventory();
+            //Assign class properties
             if (profession == "recruit")
             {
-
+                CreateRecruit();
             }
+            else if (profession == "pickpocket")
+            {
+                CreatePickpocket();
+            }
+            else
+            {
+                CreateAcolyte();
+            }
+        }
 
+        //Class creation
+        private void CreateRecruit()
+        {
+            attack += 45;
+            charisma += 15;
+            health = 100;
+        }
+
+        private void CreatePickpocket()
+        {
+            attack += 30;
+            charisma += 30;
+            health = 100;
+        }
+
+        private void CreateAcolyte()
+        {
+            attack += 15;
+            charisma += 45;
+            health = 100;
         }
 
         //Just to see if it works
@@ -139,7 +131,9 @@ namespace ASimpleRpg.Characters
                 gender = "female";
             }
 
-            Console.WriteLine("My name is {0}, I have vigor of {1}, cunning of {2}, and I am a {3} {4}", name, vigor, cunning, gender, profession);
+            Console.WriteLine("My name is {0}, I have attack of {1}, charisma of {2}, and I am a {3} {4}. Also, I have {5} health.", name, attack, charisma, gender, profession, health);
         }
+
+
     }
 }

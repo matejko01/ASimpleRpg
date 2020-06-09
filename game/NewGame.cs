@@ -7,38 +7,49 @@ namespace ASimpleRpg.game
 {
     class NewGame
     {
-        public void CreateNewCharacter()
+        public void Start()
         {
-            Console.Clear();
-            Player player = new Player(true, "", 0, 0);
-            player.Create();
-
-            Console.Clear();
-            player.PresentYourself();
+            SelectAdventure();
         }
 
-
-        public void CreateNewArmor()
+        //Player chooses his profession
+        private void SelectAdventure()
         {
-            Armor armor = new Armor("");
-            armor.CreateRandomItem();
-            Console.WriteLine("name {0}, defense {1}, value {2}", armor.name, armor.defense, armor.value);
+            bool professionInput = true;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("What is your profession? \n1)Recruit \n2)Pickpocket \n3)Acolyte");
+                string professionGiven = Console.ReadLine();
+
+                if (professionGiven == "1")
+                {
+                    StartRecruitStory();
+                    professionInput = false;
+                }
+                else if (professionGiven == "2")
+                {
+                    Console.WriteLine("This would start a pickpocket story");
+                    professionInput = false;
+                }
+                else if (professionGiven == "3")
+                {
+                    Console.WriteLine("This would start an acolyte story");
+                    professionInput = false;
+                }
+                else
+                {
+                    Console.Clear();
+                }
+            }
+            while (professionInput);
         }
 
-
-        public void CreateNewTrasure()
+        //Methods that will provide a proper story
+        private void StartRecruitStory()
         {
-            Treasure trasure = new Treasure("");
-            trasure.CreateRandomItem();
-            Console.WriteLine("name {0}, value {1}", trasure.name, trasure.value);
-        }
-
-
-        public void CreateNewWeapon()
-        {
-            Weapon weapon = new Weapon("");
-            weapon.CreateRandomItem();
-            Console.WriteLine("name {0}, value {1}, damage {2}", weapon.name, weapon.value, weapon.damage);
+            RecruitStory recruitStory = new RecruitStory();
+            recruitStory.TellAStory();
         }
     }
 

@@ -12,20 +12,11 @@ namespace ASimpleRpg.Characters
         public int defense { get; set; }
 
         String[] itemType = { "cloak", "gambison", "haubert", "plate armor" };
-        Random random = new Random();
 
         //constructor
         public Armor(string _name)
         {
             name = _name;
-            AssignStats();
-        }
-
-        //Random item for loot
-        public void CreateRandomItem()
-        {
-            string selectedItem = itemType[random.Next(0, itemType.Length)];
-            name = selectedItem;
             AssignStats();
         }
 
@@ -51,10 +42,6 @@ namespace ASimpleRpg.Characters
             {
                 value = 200;
                 defense = 50;
-            }
-            else
-            {
-                CreateRandomItem();
             }
         }
     }

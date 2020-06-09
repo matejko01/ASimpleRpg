@@ -23,7 +23,7 @@ namespace ASimpleRpg
             if (menuChoice == "1")
             {
                 Console.Clear();
-                CreatePlayer();
+                StartNewGame();
             }
             else if (menuChoice == "2")
             {
@@ -46,17 +46,10 @@ namespace ASimpleRpg
         }
 
 
-        static void CreatePlayer()
+        static void StartNewGame()
         {
             NewGame newGame = new NewGame();
-            newGame.CreateNewCharacter();
-            Console.ReadKey();
-
-            newGame.CreateNewArmor();
-            newGame.CreateNewTrasure();
-            newGame.CreateNewWeapon();
-            Console.ReadKey();
+            newGame.Start();
         }
-
     }
 }

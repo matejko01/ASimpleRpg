@@ -23,7 +23,7 @@ namespace ASimpleRpg.Characters
         //Random item for loot
         public void CreateRandomItem()
         {
-            string selectedItem = itemType[random.Next(0, itemType.Length)];
+            string selectedItem = itemType[random.Next(0, itemType.Length + 1)];
             name = selectedItem;
             AssignStats();
         }
