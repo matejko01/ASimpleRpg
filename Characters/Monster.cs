@@ -13,7 +13,7 @@ namespace ASimpleRpg.Characters
         public int attack { get; set; }
         public int health { get; set; }
 
-        String[] monsters = { "rat", "goblin", "bandit", "orc", "" };
+        String[] monsters = { "rat", "goblin", "skeleton", "bandit", "orc", "troll", "dragon" };
         String[] sizes = { "midget", "small", "regular", "big", "gargantuan" };
         Random random = new Random();
 
@@ -84,6 +84,12 @@ namespace ASimpleRpg.Characters
                     sizeControl++;
                 }
             } while (sizeControlValue == false);
+        }
+
+        //To check if it works
+        public void PresentYourself()
+        {
+            Console.WriteLine("I am a {0} {1}. I have {2} attack and {3} health.", size, name, attack, health);
         }
     }
 }
